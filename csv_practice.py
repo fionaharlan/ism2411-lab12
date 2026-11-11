@@ -93,7 +93,21 @@ with open(SALES_FILE, "r") as f:
 for product in sorted(summary):
     print(f"{product}: ${summary[product]:.2f}")
 
+print("---exercise 8---")
 
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+with open(LOG_FILE, "a") as f:
+    f.write(f"{timestamp} total revenue: ${total_revenue:.2f}\n")
 
+entries = 0
+with open(LOG_FILE, "r") as f:
+    for line in f:
+        entries += 1
+        print(line.strip())
+
+print(f"Log entries so far: {entries}")
     
 
+# reflection
+# 1. Python handles larger datasets and quicker automation compared to Excel. Python makes it much easier to evaluate larger sets of data, while Excel used a manual grid format for quick visual checks. Excel is efficient for smaller datasets.
+# 2. An e-commerce transaction log benefits from append mode because it continuously records system events chronologically without overwriting previous records.
